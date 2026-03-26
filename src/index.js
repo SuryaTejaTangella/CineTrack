@@ -21,7 +21,7 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     <StarRating
-      maxRating={5}
+      maxRating="5"
       messages={["Terrible", "Bad", "Okay", "Good", "Amazing"]}
     />
     <StarRating
@@ -32,6 +32,6 @@ root.render(
       defaultRating={3}
       messages={["😞", "😕", "😊", "😄", "😍"]}
     />
-    <Test/>
+    <Test />
   </React.StrictMode>,
 );
