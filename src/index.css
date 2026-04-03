@@ -138,12 +138,26 @@ body {
 .list {
   list-style: none;
   padding: 0.8rem 0;
-  overflow: hidden;
+  overflow-y: auto;
+  height: calc(100vh - 150px);
+}
+
+.list::-webkit-scrollbar-thumb{
+  background-color:#6741d9; 
+  border-radius: 8px;
+}
+
+.list::-webkit-scrollbar{
+  background-color:#cecdcd; 
+  width: 8px;
 }
 
 .list-watched {
   height: calc(100% - 9rem);
+  overflow-y: auto;
+  height: calc(100vh - 150px);
 }
+
 
 .list li {
   position: relative;
