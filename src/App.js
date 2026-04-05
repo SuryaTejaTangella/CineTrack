@@ -1,30 +1,6 @@
 import { useEffect, useState } from "react";
 import StarRating from "./StarRating";
 
-const tempMovieData = [
-  {
-    imdbID: "tt1375666",
-    Title: "Inception",
-    Year: "2010",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
-  },
-  {
-    imdbID: "tt0133093",
-    Title: "The Matrix",
-    Year: "1999",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-  },
-  {
-    imdbID: "tt6751668",
-    Title: "Parasite",
-    Year: "2019",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
-  },
-];
-
 const tempWatchedData = [
   {
     imdbID: "tt1375666",
@@ -54,7 +30,7 @@ const average = (arr) =>
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 
 export default function App() {
-  const [query, setQuery] = useState("inception");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState(tempWatchedData);
   const [isLoading, setIsLoading] = useState(false);
@@ -101,7 +77,6 @@ export default function App() {
           setMovies(data.Search);
           setError("");
         } catch (err) {
-          console.log(err.message);
           if (err.name !== "AbortError") {
             setError(err.message);
           }
@@ -114,6 +89,8 @@ export default function App() {
         setError("");
         return;
       }
+
+      handleCloseMovie();
       fetchMovies();
 
       return function () {
@@ -300,7 +277,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       function callback(e) {
         if (e.code === "Escape") {
           onCloseMovie();
-          console.log("Closing");
         }
       }
 
@@ -337,7 +313,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 
       return function () {
         document.title = "CineTrack";
-        console.log(`Clean up effect for movie ${title}`);
+        // console.log(`Clean up effect for movie ${title}`);
       };
     },
     [title],
@@ -430,7 +406,7 @@ function WatchedSummary({ watched }) {
         </p>
         <p>
           <span>⏳</span>
-          <span>{avgRuntime} min</span>
+          <span>{avgRuntime.toFixed(2)} min</span>
         </p>
       </div>
     </div>
