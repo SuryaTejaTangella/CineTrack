@@ -21,6 +21,10 @@ CineTrack is designed to simulate a real production-like frontend application by
 
 <video controls src="cinetrack.mp4" title="CineTrack"></video>
 
+https://github.com/user-attachments/assets/115eefe3-90c2-48e4-9dcc-02785aa81906
+
+
+
 ## ✨ Key Features
 
 ### 🔍 Smart Movie Search
