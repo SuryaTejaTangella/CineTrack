@@ -79,8 +79,7 @@ export default function App() {
 
   useEffect(
     function () {
-
-      
+      const controller = new AbortController();
 
       async function fetchMovies() {
         try {
@@ -89,6 +88,7 @@ export default function App() {
 
           const res = await fetch(
             ` http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`,
+            { signal: controller.signal },
           );
 
           const data = await res.json();
@@ -99,10 +99,12 @@ export default function App() {
           if (data.Response === "False") throw new Error("Movie Not Found!");
 
           setMovies(data.Search);
-          console.log(data.Search);
+          setError("");
         } catch (err) {
           console.log(err.message);
-          setError(err.message);
+          if (err.name !== "AbortError") {
+            setError(err.message);
+          }
         } finally {
           setIsLoading(false);
         }
@@ -113,6 +115,10 @@ export default function App() {
         return;
       }
       fetchMovies();
+
+      return function () {
+        controller.abort();
+      };
     },
     [query],
   );
@@ -291,6 +297,24 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 
   useEffect(
     function () {
+      function callback(e) {
+        if (e.code === "Escape") {
+          onCloseMovie();
+          console.log("Closing");
+        }
+      }
+
+      document.addEventListener("keydown", callback);
+
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [onCloseMovie],
+  );
+
+  useEffect(
+    function () {
       async function getMovieDetails() {
         setIsLoading(true);
 
@@ -311,10 +335,10 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       if (!title) return;
       document.title = `Movie | ${title}`;
 
-      return function (){
-        document.title="CineTrack";
+      return function () {
+        document.title = "CineTrack";
         console.log(`Clean up effect for movie ${title}`);
-      }
+      };
     },
     [title],
   );
