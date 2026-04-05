@@ -1,70 +1,179 @@
-# Getting Started with Create React App
+# 🎬 CineTrack — Advanced Movie Search & Watchlist App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CineTrack is a React-based movie application that enables users to search, explore, rate, and manage movies using real-time data from the OMDb API.
 
-## Available Scripts
+This project focuses on implementing **real-world frontend patterns**, including API optimization, side-effect management, and dynamic UI state handling.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+CineTrack is designed to simulate a real production-like frontend application by handling:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Asynchronous API communication
+* Dynamic UI updates
+* User interaction and state persistence (in-memory)
+* Performance optimizations for better user experience
 
-### `npm test`
+---
+## Preview
+![alt text](cinetrack.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Key Features
 
-### `npm run build`
+### 🔍 Smart Movie Search
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Triggers API calls only when input length ≥ 3
+* Prevents unnecessary requests and improves performance
+* Clears results when input is empty
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ⚡ Optimized API Handling
 
-### `npm run eject`
+* Implements **request cancellation** to avoid race conditions
+* Ensures only the latest search result is displayed
+* Handles rapid user input efficiently
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 📄 Dynamic Movie Details Panel
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Fetches detailed movie data using `imdbID`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Displays rich metadata:
 
-## Learn More
+  * Title, release date, runtime
+  * Genre, plot, actors, director
+  * IMDb rating
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Seamless toggle between list view and details view
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### ⭐ Interactive Rating System
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Users can rate movies using a custom star rating component
+* Enforces rating before adding to watchlist
+* Enhances user engagement
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 📌 Watchlist Management
 
-### Making a Progressive Web App
+* Add movies to a watched list
+* Remove movies dynamically
+* Prevent duplicate entries
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### 📊 Computed Watchlist Analytics
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* Calculates:
 
-### Deployment
+  * Average IMDb rating
+  * Average user rating
+  * Average runtime
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Demonstrates data transformation and aggregation
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### ⏳ Loading & Error Handling
+
+* Displays loading indicator during API calls
+* Handles:
+
+  * API errors
+  * Network failures
+  * No results scenarios
+
+---
+
+### 🧠 Side Effect Management
+
+Implements multiple real-world side effects:
+
+* API calls based on state changes
+* Cleanup of pending requests
+* Keyboard event handling (Escape to close details)
+* Dynamic document title updates
+
+---
+
+### 🎯 UI Behavior & UX Enhancements
+
+* Conditional rendering based on application state
+* Collapsible UI sections
+* Smooth interaction flow
+* Improved accessibility with keyboard support
+
+---
+
+## 🛠️ Tech Stack
+
+* ⚛️ React (Functional Components)
+* 🧩 Hooks (`useState`, `useEffect`)
+* 🌐 Fetch API
+* 🧠 AbortController (request cancellation)
+* 🎨 CSS (layout and responsiveness)
+* 🔐 Environment Variables
+
+---
+
+## ⚙️ Setup & Installation
+
+```bash id="1p6b6s"
+git clone https://github.com/SuryaTejaTangella/CineTrack.git
+cd CineTrack
+npm install
+npm start
+```
+
+Create a `.env` file:
+
+```env id="5c0qz8"
+REACT_APP_OMDB_API_KEY=your_api_key_here
+```
+
+---
+
+## 🧪 Edge Cases Considered
+
+* Rapid typing (prevents stale API responses)
+* Empty or short queries
+* Missing or inconsistent API data
+* Duplicate watchlist entries
+* Network/API failures
+
+---
+
+## 🎯 What This Project Demonstrates
+
+* Strong understanding of React hooks and lifecycle
+* Handling asynchronous operations effectively
+* Managing complex UI states (loading, error, success)
+* Implementing performance optimizations
+* Writing modular and maintainable components
+
+---
+
+## 🚧 Future Enhancements
+
+* Persistent watchlist using localStorage
+* Debounced search for further optimization
+* Improved mobile responsiveness
+* Dark mode support
+* Backend proxy for secure API handling
+
+---
+
+## 👨‍💻 Author
+
+**Surya Teja Tangella**
+
+---
+
+## ⭐ If you found this useful
+
+Give this project a ⭐ and feel free to explore the code!
