@@ -50,12 +50,30 @@ body {
 }
 
 .box {
-  width: 45rem;
-  max-width: 45rem;
+  width: 48rem;
+  max-width: 48rem;
   background-color: var(--color-background-500);
   border-radius: 0.9rem;
   overflow: hidden;
   position: relative;
+}
+
+.welcome-msg{
+  text-align: center;
+  text-transform:capitalize;
+  margin:4.8rem;
+  font-weight: 600;
+  font-size: 2rem;
+   text-shadow: 1rem 1.2rem 2.4rem rgba(4, 15, 175, 0.3);
+}
+
+.welcome-msg-title{
+  font-size:3.0rem;
+}
+
+.welcome-msg-sub{
+  font-size:1.2rem;
+  color:#adb5bd;
 }
 
 .loader {

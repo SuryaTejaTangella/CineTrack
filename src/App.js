@@ -29,7 +29,6 @@ const average = (arr) =>
 
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 
-
 export default function App() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
@@ -110,6 +109,7 @@ export default function App() {
       <Main>
         <Box>
           {/* {isLoading ? <Loader /> : <MovieList movies={movies} />} */}
+          {!query && <WelcomeMessage />}
           {isLoading && <Loader />}
           {!isLoading && !error && (
             <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
@@ -135,6 +135,17 @@ export default function App() {
           )}
         </Box>
       </Main>
+    </>
+  );
+}
+
+function WelcomeMessage() {
+  return (
+    <>
+      <h1 className="welcome-msg welcome-msg-title">Welcome</h1>
+      <h2 className="welcome-msg ">Start Tracking your favourite movies now...!!</h2>
+      <h2 className="welcome-msg welcome-msg-sub">Your Movie Search results appear here...</h2>
+      
     </>
   );
 }
