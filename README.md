@@ -10,83 +10,82 @@ This project focuses on implementing **real-world frontend patterns**, including
 
 CineTrack is designed to simulate a real production-like frontend application by handling:
 
-* Asynchronous API communication
-* Dynamic UI updates
-* User interaction and state persistence (in-memory)
-* Performance optimizations for better user experience
+- Asynchronous API communication
+- Dynamic UI updates
+- User interaction and state persistence (in-memory)
+- Performance optimizations for better user experience
 
 ---
+
 ## Preview
-![alt text](cinetrack.gif)
+
+<video controls src="cinetrack.mp4" title="CineTrack"></video>
 
 ## ✨ Key Features
 
 ### 🔍 Smart Movie Search
 
-* Triggers API calls only when input length ≥ 3
-* Prevents unnecessary requests and improves performance
-* Clears results when input is empty
+- Triggers API calls only when input length ≥ 3
+- Prevents unnecessary requests and improves performance
+- Clears results when input is empty
 
 ---
 
 ### ⚡ Optimized API Handling
 
-* Implements **request cancellation** to avoid race conditions
-* Ensures only the latest search result is displayed
-* Handles rapid user input efficiently
+- Implements **request cancellation** to avoid race conditions
+- Ensures only the latest search result is displayed
+- Handles rapid user input efficiently
 
 ---
 
 ### 📄 Dynamic Movie Details Panel
 
-* Fetches detailed movie data using `imdbID`
+- Fetches detailed movie data using `imdbID`
 
-* Displays rich metadata:
+- Displays rich metadata:
+  - Title, release date, runtime
+  - Genre, plot, actors, director
+  - IMDb rating
 
-  * Title, release date, runtime
-  * Genre, plot, actors, director
-  * IMDb rating
-
-* Seamless toggle between list view and details view
+- Seamless toggle between list view and details view
 
 ---
 
 ### ⭐ Interactive Rating System
 
-* Users can rate movies using a custom star rating component
-* Enforces rating before adding to watchlist
-* Enhances user engagement
+- Users can rate movies using a custom star rating component
+- Enforces rating before adding to watchlist
+- Enhances user engagement
 
 ---
 
 ### 📌 Watchlist Management
 
-* Add movies to a watched list
-* Remove movies dynamically
-* Prevent duplicate entries
+- Add movies to a watched list
+- Remove movies dynamically
+- Prevent duplicate entries
 
 ---
 
 ### 📊 Computed Watchlist Analytics
 
-* Calculates:
+- Calculates:
+  - Average IMDb rating
+  - Average user rating
+  - Average runtime
 
-  * Average IMDb rating
-  * Average user rating
-  * Average runtime
-
-* Demonstrates data transformation and aggregation
+- Demonstrates data transformation and aggregation
 
 ---
 
 ### ⏳ Loading & Error Handling
 
-* Displays loading indicator during API calls
-* Handles:
-
-  * API errors
-  * Network failures
-  * No results scenarios
+- Displays loading indicator during API calls
+- Handles:
+  - API errors
+  - Network failures
+  - No results scenarios
 
 ---
 
@@ -94,30 +93,30 @@ CineTrack is designed to simulate a real production-like frontend application by
 
 Implements multiple real-world side effects:
 
-* API calls based on state changes
-* Cleanup of pending requests
-* Keyboard event handling (Escape to close details)
-* Dynamic document title updates
+- API calls based on state changes
+- Cleanup of pending requests
+- Keyboard event handling (Escape to close details)
+- Dynamic document title updates
 
 ---
 
 ### 🎯 UI Behavior & UX Enhancements
 
-* Conditional rendering based on application state
-* Collapsible UI sections
-* Smooth interaction flow
-* Improved accessibility with keyboard support
+- Conditional rendering based on application state
+- Collapsible UI sections
+- Smooth interaction flow
+- Improved accessibility with keyboard support
 
 ---
 
 ## 🛠️ Tech Stack
 
-* ⚛️ React (Functional Components)
-* 🧩 Hooks (`useState`, `useEffect`)
-* 🌐 Fetch API
-* 🧠 AbortController (request cancellation)
-* 🎨 CSS (layout and responsiveness)
-* 🔐 Environment Variables
+- ⚛️ React (Functional Components)
+- 🧩 Hooks (`useState`, `useEffect`)
+- 🌐 Fetch API
+- 🧠 AbortController (request cancellation)
+- 🎨 CSS (layout and responsiveness)
+- 🔐 Environment Variables
 
 ---
 
@@ -140,31 +139,31 @@ REACT_APP_OMDB_API_KEY=your_api_key_here
 
 ## 🧪 Edge Cases Considered
 
-* Rapid typing (prevents stale API responses)
-* Empty or short queries
-* Missing or inconsistent API data
-* Duplicate watchlist entries
-* Network/API failures
+- Rapid typing (prevents stale API responses)
+- Empty or short queries
+- Missing or inconsistent API data
+- Duplicate watchlist entries
+- Network/API failures
 
 ---
 
 ## 🎯 What This Project Demonstrates
 
-* Strong understanding of React hooks and lifecycle
-* Handling asynchronous operations effectively
-* Managing complex UI states (loading, error, success)
-* Implementing performance optimizations
-* Writing modular and maintainable components
+- Strong understanding of React hooks and lifecycle
+- Handling asynchronous operations effectively
+- Managing complex UI states (loading, error, success)
+- Implementing performance optimizations
+- Writing modular and maintainable components
 
 ---
 
 ## 🚧 Future Enhancements
 
-* Persistent watchlist using localStorage
-* Debounced search for further optimization
-* Improved mobile responsiveness
-* Dark mode support
-* Backend proxy for secure API handling
+- Persistent watchlist using localStorage
+- Debounced search for further optimization
+- Improved mobile responsiveness
+- Dark mode support
+- Backend proxy for secure API handling
 
 ---
 
